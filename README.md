@@ -1,11 +1,11 @@
 # 🎨 Diffusion Models: Image Generation and Captioning
 
-Two projects with diffusion models: one fine-tunes Stable Diffusion for text to image and image to image, with image to text from a separate caption model, and one builds and trains a small text-to-image model from scratch. Both run in Google Colab on a free T4 GPU, and both can be used in one Streamlit app.
+Two projects with diffusion models: one fine-tunes Stable Diffusion for text to image and image to image, with image to text from a separate caption model, and one builds and trains a text-to-image model from scratch on Fashion-MNIST. Both run in Google Colab on a free T4 GPU, and both can be used in one Streamlit app.
 
 | Project | What it does | Where |
 |---|---|---|
 | 🌸 **Fine-tuned Stable Diffusion** | Fine-tunes Stable Diffusion 1.5 on flower or bird photos with LoRA, for text2img, img2img and img2text | `diffusion_model_finetuning.ipynb` |
-| 🔬 **Diffusion from scratch** | Trains a small text-to-image diffusion model from random weights on Fashion-MNIST clothing images | `diffusion_from_scratch/` |
+| 🔬 **Diffusion from scratch** | Trains a text-to-image diffusion model from random weights on Fashion-MNIST clothing images | `diffusion_from_scratch/` |
 
 For how both work, explained step by step, see [DETAILS.md](DETAILS.md).
 
@@ -26,7 +26,7 @@ Datasets and models are downloaded at run time. Trained weights are saved to Goo
 
 ## 🌸 Project 1: Fine-tuned Stable Diffusion
 
-Fine-tunes Stable Diffusion 1.5 on a small set of flower or bird photos using LoRA in Google Colab, then uses the result to create images from text, change existing images, and describe images in words.
+Fine-tunes Stable Diffusion 1.5 on 200 flower or bird photos (the default) using LoRA in Google Colab, then uses the result to create images from text, change existing images, and describe images in words.
 
 | Mode | Input → output | Model doing the work |
 |---|---|---|
@@ -70,7 +70,7 @@ Three choices keep training short: no validation images during training, no inte
 
 ## 🔬 Project 2: Diffusion from scratch
 
-Builds a small text-to-image diffusion model and trains it from random weights on Fashion-MNIST: 70,000 greyscale clothing images of 28×28 pixels, in 10 categories. No pre-trained image model is used: the noise schedule, the U-Net, the training loop and the sampler are written in PyTorch in the notebook. Prompts are turned into numbers by CLIP, a pre-trained text encoder that stays frozen.
+Builds a text-to-image diffusion model and trains it from random weights on Fashion-MNIST: 70,000 greyscale clothing images of 28×28 pixels, in 10 categories. No pre-trained image model is used: the noise schedule, the U-Net, the training loop and the sampler are written in PyTorch in the notebook. Prompts are turned into numbers by CLIP, a pre-trained text encoder that stays frozen.
 
 | What it can do | What it cannot do |
 |---|---|
@@ -227,5 +227,5 @@ MIT: see [LICENSE](LICENSE). The code in this repository is MIT licensed; the mo
 
 ## 🔗 Related projects
 
-- [📖🖋️ C-Caption Transformer](https://github.com/laurelthejas/c-caption-transformer): a small transformer that learns from scratch to write and explain simple C programs. From an English caption it writes a plan, the C program and an explanation.
+- [📖🖋️ C-Caption Transformer](https://github.com/laurelthejas/c-caption-transformer): a decoder-only transformer built and trained from scratch that writes short C programs from English captions, with a plan and an explanation.
 - [🧩 Autoencoders: Feature Extraction, Colorization and Enhancement](https://github.com/laurelthejas/autoencoders-recognize-colorize-enhance): three image autoencoders trained from scratch on CIFAR-10, which recognize objects and find similar images, add color to grayscale images, and remove noise and blur.
